@@ -1,0 +1,35 @@
+import { createBrowserRouter } from "react-router";
+import MainLayout from "../Components/Layouts/MainLayout";
+import ErrorPage from '../Pages/ErrorPage'
+import Register from "../Pages/Register";
+
+import Login from '../Pages/Login'
+import Home from "../Pages/Home";
+
+  const router = createBrowserRouter([
+
+    {
+        path:'/',
+        Component:MainLayout,
+        errorElement: <ErrorPage />,
+        children: [
+            {
+               index:true,
+               Component:Home
+            },
+            {
+                path:'/register',
+                Component:Register,
+            },
+            {
+                path:'/login',
+                Component:Login,
+            },
+            {
+                path:'/dashboard',
+                
+            }
+        ]
+    }
+])
+export default router;
