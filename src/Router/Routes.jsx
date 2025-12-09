@@ -5,6 +5,7 @@ import Register from "../Pages/Register";
 
 import Login from '../Pages/Login'
 import Home from "../Pages/Home";
+import DashboardLayout from "../Components/Layouts/DashboardLayout";
 
   const router = createBrowserRouter([
 
@@ -25,11 +26,13 @@ import Home from "../Pages/Home";
                 path:'/login',
                 Component:Login,
             },
-            {
-                path:'/dashboard',
-                
-            }
+         
         ]
+        
+    },
+    {
+        path:'/dashboard',
+        Component:DashboardLayout,
     }
 ])
 export default router;

@@ -144,7 +144,7 @@ const Login = () => {
     setIsLoading(true);
     signIn(data.email, data.password)
       .then(result => {
-        toast.success("Login Successful! Welcome back!", result);
+        toast.success("Login Successful!", result);
         navigate(location?.state || "/");
       })
       .catch(error => {

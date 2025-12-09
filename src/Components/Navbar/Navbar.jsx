@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
+import { FcHome } from "react-icons/fc";
 
 export default function Navbar() {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -23,10 +24,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <img
-            src="https://dummyimage.com/40x40/000/fff&text=L"
-            className="w-10 h-10 rounded-full object-cover"
-          />
+          <FcHome size={32} />
           <span className="text-xl font-bold">Smart-Home</span>
         </Link>
 
