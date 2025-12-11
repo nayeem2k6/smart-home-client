@@ -184,7 +184,7 @@ const Login = () => {
         {/* Logo/Brand */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-lg mb-4">
-            <span className="text-2xl font-bold text-white">L</span>
+            <span className="text-2xl font-bold text-white">Login</span>
           </div>
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
             Welcome Back
@@ -355,15 +355,8 @@ const Login = () => {
           </div>
         </div>
 
-        {/* Demo Credentials (Optional - Remove in production) */}
-        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
-          <p className="text-sm text-blue-800 dark:text-blue-300 font-medium mb-1">
-            Demo Credentials:
-          </p>
-          <p className="text-xs text-blue-700 dark:text-blue-400">
-            Email: demo@example.com | Password: demo123
-          </p>
-        </div>
+      
+        
       </div>
     </div>
   );

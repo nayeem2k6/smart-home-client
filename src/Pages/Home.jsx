@@ -10,11 +10,12 @@ import axios from "axios";
 
 const Home = () => {
    
-  const { data: services = [],} = useQuery({
+  const { data: services = [],roleLoading} = useQuery({
     queryKey: ["services"],
     queryFn: async () => {
       const res = await axios.get("http://localhost:3000/services");
       return res.data;
+   
     },
   });
 
@@ -26,7 +27,7 @@ const Home = () => {
   //     return res.data;
   //   },
   // });
-
+ if(roleLoading) return <span className="loading loading-spinner text-neutral"></span>
   return (
     <div className="min-h-screen">
       {/* Services Section */}

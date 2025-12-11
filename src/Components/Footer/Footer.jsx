@@ -7,8 +7,8 @@ export default function Footer() {
         <div>
           <h2 className="text-xl font-semibold mb-3">Contact Us</h2>
           <p className="mb-1">📍 Address: Dhaka, Bangladesh</p>
-          <p className="mb-1">📞 Phone: +880 1234-567890</p>
-          <p className="mb-1">✉️ Email: info@example.com</p>
+          <p className="mb-1">📞 Phone: +880 1407038855</p>
+          <p className="mb-1">✉️ Email:nayeembabu2k6@gmail.com</p>
         </div>
 
         {/* Social Media */}

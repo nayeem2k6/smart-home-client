@@ -91,6 +91,8 @@ const ServiceCard = ({ service }) => {
         <p className="font-semibold">Price: ${price}</p>
         <p className="font-medium">Duration: {duration}</p>
       </div>
+        
+      
     </div>
   );
 };

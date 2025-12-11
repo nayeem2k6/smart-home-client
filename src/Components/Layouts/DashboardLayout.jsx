@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   FaHome,
   FaUser,
@@ -37,9 +37,14 @@ import {
 } from "react-icons/fa";
 import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import useRole from '../../hooks/UseRole'
+import { AuthContext } from "../../Context/AuthContext";
+import AdminRoleDashboard from "../../Pages/AdminRoleDashboard";
 
 const DashboardLayout = () => {
-  const { role } = useRole();
+  const { user,  } = useContext(AuthContext);
+  let {data, roleLoading} = useRole(user);
+ 
+  console.log(data)
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -50,7 +55,8 @@ const DashboardLayout = () => {
     totalRevenue: 125000,
     activeDecorators: 24,
   });
-
+ if( roleLoading) return <span className="loading loading-spinner text-neutral"></span>
+  data=data.data
   return (
     <div className="drawer lg:drawer-open min-h-screen bg-gray-50">
       <input
@@ -160,12 +166,12 @@ const DashboardLayout = () => {
               >
                 <div className="avatar">
                   <div className="w-9 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 flex items-center justify-center">
-                    <FaUser className="text-white" />
+                  <img src={data.image} />
                   </div>
                 </div>
                 <div className="hidden md:block text-left">
-                  <p className="text-sm font-medium">NAyEeM</p>
-                  <p className="text-xs text-gray-500 capitalize">{role}</p>
+                  <p className="text-sm font-medium">{data.name}</p>
+                  <p className="text-xs text-gray-500 capitalize">{data.role}</p>
                 </div>
                 <FaChevronDown className="text-sm" />
               </div>
@@ -187,10 +193,10 @@ const DashboardLayout = () => {
                 </li>
                 <li className="divider my-1"></li>
                 <li>
-                  <a className="text-red-500">
+                  <NavLink to={'/'} className="text-red-500">
                     <FaSignOutAlt className="text-sm" />
                     Logout
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -274,13 +280,13 @@ const DashboardLayout = () => {
             <div className="flex items-center gap-3 p-3 bg-gray-800/50 rounded-lg">
               <div className="avatar">
                 <div className="w-10 rounded-full bg-gradient-to-r from-blue-400 to-purple-400">
-                  <FaUser className="text-white m-auto h-5" />
+                  <img src={data.image} />
                 </div>
               </div>
               <div className="flex-1">
-                <p className="font-medium">NayEem</p>
+                <p className="font-medium">{data.name}</p>
                 <p className="text-xs text-gray-400 capitalize">
-                  {role} Account
+                  {data.role} Account
                 </p>
               </div>
             </div>
@@ -310,7 +316,7 @@ const DashboardLayout = () => {
               </li>
 
               {/* User Dashboard Links */}
-              {role === "user" && (
+              {data.role === "User" && (
                 <>
                   <li className="menu-title text-gray-400 text-xs uppercase mt-6 mb-2">
                     My Account
@@ -394,7 +400,7 @@ const DashboardLayout = () => {
               )}
 
               {/* Admin Dashboard Links */}
-              {role === "admin" && (
+              {data.role === "admin" && (
                 <>
                   <li className="menu-title text-gray-400 text-xs uppercase mt-6 mb-2">
                     Management
@@ -553,11 +559,13 @@ const DashboardLayout = () => {
                       User Management
                     </NavLink>
                   </li>
+                  
                 </>
+              
               )}
 
               {/* Decorator Dashboard Links */}
-              {role === "decorator" && (
+              {data.role === "decorator" && (
                 <>
                   <li className="menu-title text-gray-400 text-xs uppercase mt-6 mb-2">
                     My Work
