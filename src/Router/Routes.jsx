@@ -8,7 +8,9 @@ import Home from "../Pages/Home";
 import DashboardLayout from "../Components/Layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoleDashboard from "../Pages/AdminRoleDashboard";
-import AdminRoute from "./AdminRoute";
+import MyProfile from "../Pages/MyProfile";
+import ServicesPage from "../Components/services/ServicesPage";
+import ServiceDetails from "../Components/services/ServicesDetails";
 
   const router = createBrowserRouter([
 
@@ -29,6 +31,14 @@ import AdminRoute from "./AdminRoute";
                 path:'/login',
                 Component:Login,
             },
+            {
+                path:'/services',
+                Component:ServicesPage
+            },
+            {
+                path:'/services/:id',
+                element:<ServiceDetails></ServiceDetails>
+            }
          
         ]
         
@@ -44,6 +54,10 @@ import AdminRoute from "./AdminRoute";
                 element:
                     <AdminRoleDashboard></AdminRoleDashboard>
                 
+            },
+            {
+                path:'/dashboard/profile',
+                element:<MyProfile></MyProfile>
             }
         ]
         

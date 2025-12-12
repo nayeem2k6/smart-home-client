@@ -68,7 +68,7 @@ export default function Navbar() {
                   {profileOpen && (
                     <div className="absolute right-0 mt-2 w-44 bg-white shadow-lg border rounded-lg animate-fadeIn">
                       <Link
-                        to="/profile"
+                        to="/dashboard/profile"
                         className="px-4 py-2 block hover:bg-gray-100 transition"
                         onClick={() => setProfileOpen(false)}
                       >

@@ -43,7 +43,6 @@ import AdminRoleDashboard from "../../Pages/AdminRoleDashboard";
 const DashboardLayout = () => {
   const { user,  } = useContext(AuthContext);
   let {data, roleLoading} = useRole(user);
- 
   console.log(data)
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
@@ -180,10 +179,10 @@ const DashboardLayout = () => {
                 className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-2"
               >
                 <li>
-                  <a>
+                  <NavLink to="/dashboard/profile">
                     <FaUser className="text-sm" />
                     My Profile
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
                   <a>
@@ -268,9 +267,10 @@ const DashboardLayout = () => {
           {/* Sidebar Header */}
           <div className="p-6 border-b border-gray-700">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+              <button onClick={() => navigate(-1)} className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                 <FaHome className="text-white text-2xl" />
-              </div>
+                
+              </button>
               <div>
                 <h2 className="font-bold text-xl">DecoratePro</h2>
                 <p className="text-xs text-gray-400">Professional Dashboard</p>
