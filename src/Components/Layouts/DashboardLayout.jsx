@@ -407,7 +407,7 @@ const DashboardLayout = () => {
                   </li>
                   <li>
                     <NavLink
-                      to="/dashboard/decorators"
+                      to="/dashboard/decorate"
                       className={({ isActive }) =>
                         `rounded-lg mb-1 ${
                           isActive
@@ -417,7 +417,7 @@ const DashboardLayout = () => {
                       }
                     >
                       <FaUserTie />
-                      Manage Decorators
+                      Manage Decorate
                     </NavLink>
                   </li>
                   <li>
@@ -704,3 +704,5 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
+
+

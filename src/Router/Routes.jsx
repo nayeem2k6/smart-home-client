@@ -11,6 +11,8 @@ import AdminRoleDashboard from "../Pages/AdminRoleDashboard";
 import MyProfile from "../Pages/MyProfile";
 import ServicesPage from "../Components/services/ServicesPage";
 import ServiceDetails from "../Components/services/ServicesDetails";
+import MyBookings from "../Components/MyBookings";
+import AdminServices from "../Components/services/AdminServices";
 
   const router = createBrowserRouter([
 
@@ -58,7 +60,16 @@ import ServiceDetails from "../Components/services/ServicesDetails";
             {
                 path:'/dashboard/profile',
                 element:<MyProfile></MyProfile>
+            },
+            {
+                path:'/dashboard/bookings',
+                element:<MyBookings></MyBookings>
+            },
+            {
+                path:'/dashboard/services',
+                element:<AdminServices></AdminServices>
             }
+           
         ]
         
     }

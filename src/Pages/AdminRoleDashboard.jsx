@@ -86,7 +86,7 @@ export default function AdminRoleDashboard() {
                 onChange={(e) => updateRole(u.email, e.target.value)}
                 className="w-full border p-2 rounded-xl focus:ring focus:ring-indigo-200"
               >
-                <option value="user">User</option>
+                <option value="User">User</option>
                 <option value="admin">Admin</option>
                 <option value="decorator">Decorator</option>
               </select>

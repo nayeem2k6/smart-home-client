@@ -333,6 +333,7 @@ function BookingModal({ service, setOpen, user }) {
         date,
         location,
         price: service.price
+        
       });
        toast.success(`Booking Successful for ${service.title}!`)
      
