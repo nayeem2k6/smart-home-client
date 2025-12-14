@@ -6,7 +6,6 @@ import DecoratorCard from "../Components/decorator/DecoratorCard";
 import { Link } from "react-router";
 import MapComponent from "./MapCoverage";
 
-import ServicesPage from "../Components/services/ServicesPage";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 

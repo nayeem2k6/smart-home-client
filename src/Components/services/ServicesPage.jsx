@@ -231,7 +231,7 @@ export default function ServicesPage() {
           // Services Grid
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {services.map((service) => {
-              const { _id, title, price, duration, description, image, type: serviceType, rating } = service;
+              const { _id, title, cost,createdByEmail, description, image, type: serviceType, rating } = service;
 
               return (
                 <div
@@ -269,13 +269,13 @@ export default function ServicesPage() {
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center text-gray-700">
                         <FaDollarSign className="mr-2 text-green-500" />
-                        <span className="font-bold text-lg">${price}</span>
+                        <span className="font-bold text-lg">${cost}</span>
                         <span className="text-gray-500 text-sm ml-2">starting price</span>
                       </div>
                       
                       <div className="flex items-center text-gray-700">
                         <FaClock className="mr-2 text-blue-500" />
-                        <span className="font-medium">{duration}</span>
+                        <span className="font-medium">{createdByEmail}</span>
                       </div>
                     </div>
 

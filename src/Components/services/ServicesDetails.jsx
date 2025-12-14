@@ -214,12 +214,12 @@ export default function ServiceDetails() {
                   <div>
                     <p className="text-gray-500 text-sm">Starting from</p>
                     <div className="flex items-baseline">
-                      <span className="text-4xl font-bold text-gray-900">৳ {service.price}</span>
+                      <span className="text-4xl font-bold text-gray-900">৳ {service.cost}</span>
                       <span className="text-gray-500 ml-2">/ service</span>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm text-gray-500 line-through">৳ {service.price * 1.2}</p>
+                    <p className="text-sm text-gray-500 line-through">৳ {service.cost * 1.2}</p>
                     <span className="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded">
                       SAVE 20%
                     </span>
@@ -332,7 +332,7 @@ function BookingModal({ service, setOpen, user }) {
         serviceName: service.title,
         date,
         location,
-        price: service.price
+        cost: service.cost
         
       });
        toast.success(`Booking Successful for ${service.title}!`)
@@ -413,11 +413,11 @@ function BookingModal({ service, setOpen, user }) {
             <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-4 border border-gray-100">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-600">Service Price</span>
-                <span className="font-bold text-gray-900">৳ {service.price}</span>
+                <span className="font-bold text-gray-900">৳ {service.cost}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">Total</span>
-                <span className="text-2xl font-bold text-gray-900">৳ {service.price}</span>
+                <span className="text-2xl font-bold text-gray-900">৳ {service.cost}</span>
               </div>
             </div>
           </div>
