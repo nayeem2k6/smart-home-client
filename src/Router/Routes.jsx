@@ -14,6 +14,7 @@ import ServiceDetails from "../Components/services/ServicesDetails";
 import MyBookings from "../Components/MyBookings";
 import AdminServices from "../Components/services/AdminServices";
 import PaymentSuccess from "../Components/services/PaymentSuccess";
+import AdminManageBookings from "../Components/services/AdminManageBookings";
 
 const router = createBrowserRouter([
   {
@@ -70,12 +71,13 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment-success",
         element: <PaymentSuccess></PaymentSuccess>,
+      },
+      {
+        path:"/dashboard/bookings/manage",
+        element:<AdminManageBookings></AdminManageBookings>
       }
         
-      //    {
-      //     path:'/dashboard/payments',
-      //     element:<PaymentSuccess></PaymentSuccess>
-      //    }
+    
     ],
   },
 ]);
