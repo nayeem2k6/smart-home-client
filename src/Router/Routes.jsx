@@ -15,6 +15,8 @@ import MyBookings from "../Components/MyBookings";
 import AdminServices from "../Components/services/AdminServices";
 import PaymentSuccess from "../Components/services/PaymentSuccess";
 import AdminManageBookings from "../Components/services/AdminManageBookings";
+import AssignedProject from "../Components/services/AssignedProject";
+import UpdateStatus from "../Components/services/UpdateStatus";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +77,14 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/bookings/manage",
         element:<AdminManageBookings></AdminManageBookings>
+      },
+      {
+        path:'/dashboard/projects',
+        element:<AssignedProject></AssignedProject>
+      },
+      {
+        path:'/dashboard/projects/update',
+        element:<UpdateStatus></UpdateStatus>
       }
         
     
