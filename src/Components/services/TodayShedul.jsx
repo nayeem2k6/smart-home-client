@@ -1,38 +1,35 @@
 
+
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
-const TodayShedul = () => {
+const TodaySchedule = () => {
   const axiosSecure = useAxiosSecure();
+  const { user } = useContext(AuthContext);
 
-  // আজকের date (YYYY-MM-DD)
   const today = new Date().toISOString().split("T")[0];
 
   const { data: projects = [], isLoading } = useQuery({
-    queryKey: ["today-schedule", today],
+    queryKey: ["today-schedule", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get("/decorator/projects");
       return res.data;
     },
+    enabled: !!user?.email,
   });
 
-  // আজকের project filter
   const todayProjects = projects.filter(
-    (item) => item.date === today
+    (item) =>
+      item.date === today &&
+      item.decoratorEmail === user.email
   );
 
-   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="text-center">
-          <div className="w-12 h-12 animate-spin text-indigo-600 mx-auto mb-4" />
-          <p className="text-gray-600 font-medium">Loading projects...</p>
-        </div>
-      </div>
-    );
+  if (isLoading) {
+    return <p className="text-center mt-6">Loading...</p>;
   }
-
 
   return (
     <div className="p-4">
@@ -51,11 +48,12 @@ const TodayShedul = () => {
             <p className="font-medium text-lg">
               {item.serviceName}
             </p>
-
             <p className="text-sm">
               Client: {item.userName}
             </p>
-
+            <p className="text-sm">
+              Location: {item.location}
+            </p>
             <p className="text-sm">
               Status:{" "}
               <span className="font-semibold">
@@ -69,4 +67,4 @@ const TodayShedul = () => {
   );
 };
 
-export default TodayShedul;
+export default TodaySchedule;

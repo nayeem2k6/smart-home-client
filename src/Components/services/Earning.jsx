@@ -44,7 +44,7 @@ const Earning = () => {
       </h2>
 
       <p className="text-lg font-medium">
-        Total Earnings: ৳{totalEarnings}
+        Total Earnings: {totalEarnings}
       </p>
 
       <p className="text-sm mt-1">
