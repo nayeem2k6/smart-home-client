@@ -17,6 +17,8 @@ import PaymentSuccess from "../Components/services/PaymentSuccess";
 import AdminManageBookings from "../Components/services/AdminManageBookings";
 import AssignedProject from "../Components/services/AssignedProject";
 import UpdateStatus from "../Components/services/UpdateStatus";
+import TodayShedul from "../Components/services/TodayShedul";
+import Earning from "../Components/services/Earning";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +87,14 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/projects/update',
         element:<UpdateStatus></UpdateStatus>
+      },
+      {
+        path:'/dashboard/schedule',
+        element:<TodayShedul></TodayShedul>
+      },
+      {
+        path:"/dashboard/earnings",
+        Component:Earning
       }
         
     

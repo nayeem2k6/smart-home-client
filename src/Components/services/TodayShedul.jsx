@@ -19,12 +19,20 @@ const TodayShedul = () => {
 
   // আজকের project filter
   const todayProjects = projects.filter(
-    (item) => item.eventDate === today
+    (item) => item.date === today
   );
 
-  if (isLoading) {
-    return <p className="text-center mt-6">Loading...</p>;
+   if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <div className="text-center">
+          <div className="w-12 h-12 animate-spin text-indigo-600 mx-auto mb-4" />
+          <p className="text-gray-600 font-medium">Loading projects...</p>
+        </div>
+      </div>
+    );
   }
+
 
   return (
     <div className="p-4">
@@ -45,7 +53,7 @@ const TodayShedul = () => {
             </p>
 
             <p className="text-sm">
-              Client: {item.clientName}
+              Client: {item.userName}
             </p>
 
             <p className="text-sm">
