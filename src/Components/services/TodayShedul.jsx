@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import LoadingSpiner from "../LoadingSpiner";
 
 const TodaySchedule = () => {
   const axiosSecure = useAxiosSecure();
@@ -15,7 +16,7 @@ const TodaySchedule = () => {
   const { data: projects = [], isLoading } = useQuery({
     queryKey: ["today-schedule", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get("/decorator/projects");
+      const res = await axiosSecure.get("/decorator/today");
       return res.data;
     },
     enabled: !!user?.email,
@@ -23,12 +24,12 @@ const TodaySchedule = () => {
 
   const todayProjects = projects.filter(
     (item) =>
-      item.date === today &&
+      item.createdAt === today &&
       item.decoratorEmail === user.email
   );
 
   if (isLoading) {
-    return <p className="text-center mt-6">Loading...</p>;
+    return <LoadingSpiner></LoadingSpiner>;
   }
 
   return (

@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaSearch, FaFilter, FaDollarSign, FaCalendarAlt, FaArrowRight, FaStar, FaClock } from "react-icons/fa";
+import LoadingSpiner from "../LoadingSpiner";
 
 export default function ServicesPage() {
   const [search, setSearch] = useState("");
@@ -39,7 +40,7 @@ export default function ServicesPage() {
     setMin("");
     setMax("");
   };
-
+if(isLoading) return <LoadingSpiner></LoadingSpiner>
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}

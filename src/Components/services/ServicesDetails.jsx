@@ -84,6 +84,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { FaStar, FaCalendarAlt, FaMapMarkerAlt, FaTag, FaCheckCircle, FaSpinner, FaExclamationTriangle } from "react-icons/fa";
 import { toast } from "react-toastify";
+import LoadingSpiner from "../LoadingSpiner";
 
 export default function ServiceDetails() {
   const { id } = useParams();
@@ -98,14 +99,7 @@ export default function ServiceDetails() {
     },
   });
 
-  if (isLoading) return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500 mx-auto mb-4"></div>
-        <p className="text-gray-600 text-lg font-medium">Loading service details...</p>
-      </div>
-    </div>
-  );
+  if (isLoading) return <LoadingSpiner></LoadingSpiner>;
 
   if (isError) return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">

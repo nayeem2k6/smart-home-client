@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { Loader2 } from "lucide-react";
+import LoadingSpiner from "../LoadingSpiner";
 
 const AssignedProject = () => {
   const axiosSecure = useAxiosSecure();
@@ -15,14 +15,7 @@ const AssignedProject = () => {
   });
 
    if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-indigo-600 mx-auto mb-4" />
-          <p className="text-gray-600 font-medium">Loading projects...</p>
-        </div>
-      </div>
-    );
+    return <LoadingSpiner></LoadingSpiner>
   }
 
 

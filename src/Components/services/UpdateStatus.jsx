@@ -109,6 +109,7 @@ import {
   Loader2,
   ArrowUpCircle
 } from "lucide-react";
+import LoadingSpiner from "../LoadingSpiner";
 
 const UpdateStatus = () => {
   const axiosSecure = useAxiosSecure();
@@ -161,14 +162,7 @@ const UpdateStatus = () => {
   };
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="text-center">
-          <div className="w-12 h-12 animate-spin text-indigo-600 mx-auto mb-4" />
-          <p className="text-gray-600 font-medium">Loading projects...</p>
-        </div>
-      </div>
-    );
+    return <LoadingSpiner></LoadingSpiner>;
   }
 
   return (

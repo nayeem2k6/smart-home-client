@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import ServiceCard from "../Components/services/ServiceCard";
-import DecoratorCard from "../Components/decorator/DecoratorCard";
 import { Link } from "react-router";
 import MapComponent from "./MapCoverage";
 
@@ -26,7 +25,9 @@ const Home = () => {
   //   },
   // });
   if (roleLoading)
-    return <span className="loading loading-spinner text-neutral"></span>;
+    return <div className="flex justify-center items-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>;
   return (
     <div className="min-h-screen">
       <section className="py-16 px-4">
