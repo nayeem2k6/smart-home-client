@@ -23,6 +23,7 @@ import { DecoratorApproval } from "../Components/AdminMake/DecoratorApproval";
 import { BookingsHistogram } from "../Components/AdminMake/BookingsHistogram";
 import PaymentHistory from "../Components/AdminMake/PaymentHistory";
 import About from "../Components/menu/About";
+import Cot from "../Components/menu/cot";
 
 const router = createBrowserRouter([
   {
@@ -56,7 +57,8 @@ const router = createBrowserRouter([
         Component:About
       },
       {
-        path:""
+        path:"/contact",
+        element:<Cot></Cot>
       }
     ],
   },
