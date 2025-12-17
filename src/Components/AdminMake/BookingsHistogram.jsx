@@ -3,22 +3,25 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from "recharts";
 
 export function BookingsHistogram() {
-     const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
+
   const { data: histogram = [] } = useQuery({
     queryKey: ["bookings-histogram"],
-    queryFn: async () =>
-      (await axiosSecure.get("/admin/bookings-histogram")).data,
+    queryFn: async () => {
+      const res = await axiosSecure.get("/admin/bookings-histogram");
+      return res.data;
+    },
   });
 
   return (
     <div className="p-6">
       <h2 className="text-xl font-semibold mb-4">Bookings Histogram</h2>
-      <div width="100%" height={300}>
-        <BarChart data={histogram}>
+      <div style={{ width: "100%", height: 300 }}>
+        <BarChart width={600} height={300} data={histogram}>
           <XAxis dataKey="date" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="count" />
+          <Bar dataKey="count" fill="#8884d8" />
         </BarChart>
       </div>
     </div>

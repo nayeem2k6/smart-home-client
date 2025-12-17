@@ -19,11 +19,12 @@ import AssignedProject from "../Components/services/AssignedProject";
 import UpdateStatus from "../Components/services/UpdateStatus";
 import TodayShedul from "../Components/services/TodayShedul";
 import Earning from "../Components/services/Earning";
-import { DecoratorApproval } from "../Components/AdminMake/DecoratorApproval";
+
 import { BookingsHistogram } from "../Components/AdminMake/BookingsHistogram";
 import PaymentHistory from "../Components/AdminMake/PaymentHistory";
 import About from "../Components/menu/About";
 import Cot from "../Components/menu/cot";
+import DecoratorApproval from "../Components/AdminMake/DecoratorApproval";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
       },
       
       {
@@ -110,8 +111,9 @@ const router = createBrowserRouter([
         path:"/dashboard/earnings",
         Component:Earning
       },
+     
       {
-        path:'/dashboard/decorators/approval',
+        path:"/dashboard/decorators/approval",
         element:<DecoratorApproval></DecoratorApproval>
       },
       {
@@ -121,6 +123,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/payment-history",
         element:<PaymentHistory></PaymentHistory>
+      },
+      {
+        path:"/dashboard/analytics/bookings-histogram",
+        Component:BookingsHistogram
       }
         
     

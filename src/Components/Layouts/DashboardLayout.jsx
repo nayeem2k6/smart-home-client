@@ -1153,7 +1153,7 @@ const DashboardLayout = () => {
                   </li>
                   <li>
                     <NavLink
-                      to="/dashboard/decorators"
+                      to=""
                       className={({ isActive }) =>
                         `rounded-lg mb-1 ${
                           isActive
