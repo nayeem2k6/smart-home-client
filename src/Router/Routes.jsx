@@ -22,6 +22,7 @@ import Earning from "../Components/services/Earning";
 import { DecoratorApproval } from "../Components/AdminMake/DecoratorApproval";
 import { BookingsHistogram } from "../Components/AdminMake/BookingsHistogram";
 import PaymentHistory from "../Components/AdminMake/PaymentHistory";
+import About from "../Components/menu/About";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,14 @@ const router = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
       },
+      
+      {
+        path:"/about",
+        Component:About
+      },
+      {
+        path:""
+      }
     ],
   },
   {
