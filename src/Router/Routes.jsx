@@ -25,6 +25,7 @@ import PaymentHistory from "../Components/AdminMake/PaymentHistory";
 import About from "../Components/menu/About";
 import Cot from "../Components/menu/cot";
 import DecoratorApproval from "../Components/AdminMake/DecoratorApproval";
+import { ServiceDemandChart } from "../Components/AdminMake/ServiceDemandChart";
 
 const router = createBrowserRouter([
   {
@@ -127,6 +128,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/analytics/bookings-histogram",
         Component:BookingsHistogram
+      },
+      {
+        path:"/dashboard/analytics/service-demand",
+        Component:ServiceDemandChart
       }
         
     
