@@ -26,6 +26,7 @@ import About from "../Components/menu/About";
 import Cot from "../Components/menu/cot";
 import DecoratorApproval from "../Components/AdminMake/DecoratorApproval";
 import { ServiceDemandChart } from "../Components/AdminMake/ServiceDemandChart";
+import { RevenueMonitoring } from "../Components/AdminMake/RevenueMonitoring";
 
 const router = createBrowserRouter([
   {
@@ -132,6 +133,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/analytics/service-demand",
         Component:ServiceDemandChart
+      },
+      {
+        path:"/dashboard/revenueMonitoring",
+        Component:RevenueMonitoring
       }
         
     

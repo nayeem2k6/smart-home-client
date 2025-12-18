@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaSearch, FaFilter, FaDollarSign, FaCalendarAlt, FaArrowRight, FaStar, FaClock } from "react-icons/fa";
 import LoadingSpiner from "../LoadingSpiner";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 export default function ServicesPage() {
   const [search, setSearch] = useState("");
@@ -13,7 +13,7 @@ export default function ServicesPage() {
   const [min, setMin] = useState("");
   const [max, setMax] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-
+ const axiosSecure = useAxiosSecure()
   // Auto-refetch when filters change
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,7 +26,7 @@ export default function ServicesPage() {
   const { data: services = [], refetch, isLoading } = useQuery({
     queryKey: ["services", search, type, min, max],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/services", {
+      const res = await axiosSecure.get("/services", {
         params: { search, type, min, max },
       });
       return res.data;

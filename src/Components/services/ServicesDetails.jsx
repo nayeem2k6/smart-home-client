@@ -79,22 +79,22 @@
 
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { FaStar, FaCalendarAlt, FaMapMarkerAlt, FaTag, FaCheckCircle, FaSpinner, FaExclamationTriangle } from "react-icons/fa";
 import { toast } from "react-toastify";
 import LoadingSpiner from "../LoadingSpiner";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 export default function ServiceDetails() {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
-  
+  const axiosSecure = useAxiosSecure();
   const { data: service, isLoading, isError } = useQuery({
     queryKey: ["service", id],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:3000/services/${id}`);
+      const res = await axiosSecure.get(`/services/${id}`);
       return res.data.result;
     },
   });
@@ -310,8 +310,9 @@ function BookingModal({ service, setOpen, user }) {
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+ const axiosSecure = useAxiosSecure();
   const handleBooking = async () => {
+   
     if (!date || !location) {
       toast.success("Please fill in all fields");
       return;
@@ -319,7 +320,7 @@ function BookingModal({ service, setOpen, user }) {
 
     setIsSubmitting(true);
     try {
-      await axios.post("http://localhost:3000/bookings", {
+      await axiosSecure.post("/bookings", {
         userEmail: user.email,
         userName: user.displayName,
         serviceId: service._id,

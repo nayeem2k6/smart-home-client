@@ -32,20 +32,20 @@
 // }
 
 import { useEffect } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useSearchParams } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 export default function PaymentSuccess() {
   const [params] = useSearchParams();
   const bookingId = params.get("bookingId");
   const transactionId = params.get("tx");
-
+ const axiosSecure = useAxiosSecure();
   useEffect(() => {
     if (!bookingId || !transactionId) return;
 
-    axios
-      .patch(`http://localhost:3000/bookings/mark-paid/${bookingId}`, {
+    axiosSecure
+      .patch(`/bookings/mark-paid/${bookingId}`, {
         transactionId,
       })
       .then(() => {

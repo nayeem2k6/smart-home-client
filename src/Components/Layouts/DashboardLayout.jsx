@@ -1253,7 +1253,7 @@ const DashboardLayout = () => {
                   </li>
                   <li>
                     <NavLink
-                      to="/dashboard/revenue"
+                      to="/dashboard/revenueMonitoring"
                       className={({ isActive }) =>
                         `rounded-lg mb-1 ${
                           isActive

@@ -1,5 +1,4 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
@@ -14,6 +13,7 @@ import {
   CheckBadgeIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export default function MyBookings() {
   const { user } = useContext(AuthContext);
@@ -22,14 +22,14 @@ export default function MyBookings() {
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-
+ const axiosSecure = useAxiosSecure()
   // Fetch bookings
   const { data: bookings = [], isLoading } = useQuery({
     queryKey: ["bookings", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      const res = await axios.get(
-        `http://localhost:3000/bookings?email=${user.email}`
+      const res = await axiosSecure.get(
+        `/bookings?email=${user.email}`
       );
       return res.data;
     },
@@ -38,7 +38,7 @@ export default function MyBookings() {
   // Cancel booking
   const handleCancel = async (id) => {
     if (window.confirm("Are you sure you want to cancel this booking?")) {
-      await axios.patch(`http://localhost:3000/bookings/cancel/${id}`);
+      await axiosSecure.patch(`/bookings/cancel/${id}`);
       queryClient.invalidateQueries(["bookings", user?.email]);
       toast.success("Booking Cancelled Successfully!");
     }
@@ -46,8 +46,8 @@ export default function MyBookings() {
 
   const handlePay = async (booking) => {
     try {
-      const res = await axios.post(
-        "http://localhost:3000/create-payment-session",
+      const res = await axiosSecure.post(
+        "/create-payment-session",
         {
           bookingId: booking._id,
           serviceName: booking.serviceName,
@@ -80,8 +80,8 @@ export default function MyBookings() {
       return;
     }
 
-    await axios.patch(
-      `http://localhost:3000/bookings/update/${selectedBooking._id}`,
+    await axiosSecure.patch(
+      `/bookings/update/${selectedBooking._id}`,
       { date, location }
     );
     queryClient.invalidateQueries(["bookings", user?.email]);

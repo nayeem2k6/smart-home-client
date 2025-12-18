@@ -3,6 +3,7 @@
 import { BarChart, Bar, XAxis, Tooltip, YAxis, ResponsiveContainer } from "recharts";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import LoadingSpiner from "../LoadingSpiner";
 
 export function ServiceDemandChart() {
   const axiosSecure = useAxiosSecure();
@@ -16,7 +17,7 @@ export function ServiceDemandChart() {
   });
 
   if (isLoading) {
-    return <p className="p-6">Loading...</p>;
+    return <LoadingSpiner></LoadingSpiner>;
   }
 
   return (
