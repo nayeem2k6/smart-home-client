@@ -1,11 +1,13 @@
 
 import React, { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import LoadingSpiner from "../Components/LoadingSpiner";
 
 export default function AdminRoleDashboard() {
+  const axiosSecure =useAxiosSecure()
   const { user } = useContext(AuthContext);
  console.log(user)
   const {
@@ -15,15 +17,15 @@ export default function AdminRoleDashboard() {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/users");
+      const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
 
   const updateRole = async (email, newRole) => {
     try {
-      const res = await axios.patch(
-        `http://localhost:3000/users/role/${email}`,
+      const res = await axiosSecure.patch(
+        `/users/role/${email}`,
         { role: newRole }
       );
 
@@ -40,7 +42,7 @@ export default function AdminRoleDashboard() {
   };
 
   if (roleLoading)
-    return <span className="loading loading-spinner text-neutral"></span>;
+    return <LoadingSpiner></LoadingSpiner>
 
   return (
     <div className="p-4 sm:p-6">

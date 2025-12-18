@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import useRole from '../hooks/UseRole';
 import { AuthContext } from '../Context/AuthContext';
+import LoadingSpiner from '../Components/LoadingSpiner';
 
 const AdminRoute = ({ children }) => {
     const { loading } = useContext(AuthContext);
     const { role, roleLoading } = useRole()
 
     if (loading || roleLoading) {
-        return <div>loading..</div>
+        return <LoadingSpiner></LoadingSpiner>
     }
 
     if (role !== 'admin') {

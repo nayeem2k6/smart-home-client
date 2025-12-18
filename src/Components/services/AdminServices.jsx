@@ -15,6 +15,7 @@ import {
   FaPlus,
   FaTimes
 } from "react-icons/fa";
+import LoadingSpiner from "../LoadingSpiner";
 
 export default function AdminServices() {
   const axiousSecure = useAxiosSecure();
@@ -39,7 +40,7 @@ export default function AdminServices() {
   } = useQuery({
     queryKey: ["admin-services"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/admin/services");
+      const res = await axiousSecure.get("/admin/services");
       return res.data;
     },
   });
@@ -105,7 +106,7 @@ export default function AdminServices() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this service?")) return;
     try {
-      await axios.delete(`http://localhost:3000/admin/services/${id}`);
+      await axiousSecure.delete(`/admin/services/${id}`);
       toast.success("Service deleted successfully");
       refetch();
     } catch (err) {
@@ -151,8 +152,8 @@ export default function AdminServices() {
 
       if (editingService) {
         // Update service
-        await axios.put(
-          `http://localhost:3000/admin/services/${editingService._id}`,
+        await axiousSecure.put(
+          `/admin/services/${editingService._id}`,
           payload
         );
         toast.success("Service updated successfully");
@@ -183,9 +184,7 @@ export default function AdminServices() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
+      <LoadingSpiner></LoadingSpiner>
     );
   }
 

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
@@ -13,9 +12,9 @@ export default function AdminManageBookings() {
 //   }, []);
 
   const loadData = async () => {
-    const bookingRes = await axios.get("http://localhost:3000/admin/bookings");
-    const decoratorRes = await axios.get(
-      "http://localhost:3000/admin/decorators"
+    const bookingRes = await axiosSecure.get("/admin/bookings");
+    const decoratorRes = await axiosSecure.get(
+      "/admin/decorators"
     );
 
     setBookings(bookingRes.data);
@@ -34,7 +33,7 @@ export default function AdminManageBookings() {
     }
 
     await axiosSecure.patch(
-      `http://localhost:3000/admin/assign-decorator/${bookingId}`,
+      `/admin/assign-decorator/${bookingId}`,
       { decoratorEmail }
     );
 

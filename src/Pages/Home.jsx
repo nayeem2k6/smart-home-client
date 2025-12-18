@@ -6,13 +6,14 @@ import { Link } from "react-router";
 import MapComponent from "./MapCoverage";
 
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Home = () => {
+  const axiosSecure = useAxiosSecure()
   const { data: services = [], roleLoading } = useQuery({
     queryKey: ["services"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/services");
+      const res = await axiosSecure.get("/services");
       return res.data;
     },
   });
