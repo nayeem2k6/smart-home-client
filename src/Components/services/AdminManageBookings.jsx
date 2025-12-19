@@ -5,7 +5,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 export default function AdminManageBookings() {
   const [bookings, setBookings] = useState([]);
   const [decorators, setDecorators] = useState([]);
-  const [selected, setSelected] = useState({}); // 👈 FIX
+  const [selected, setSelected] = useState({}); 
  const axiosSecure= useAxiosSecure()
 //   useEffect(() => {
 //     loadData();

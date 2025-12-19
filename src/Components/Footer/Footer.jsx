@@ -8,16 +8,16 @@ export default function Footer() {
           <h2 className="text-xl font-semibold mb-3">Contact Us</h2>
           <p className="mb-1">📍 Address: Dhaka, Bangladesh</p>
           <p className="mb-1">📞 Phone: +880 1407038855</p>
-          <p className="mb-1">✉️ Email:nayeembabu2k6@gmail.com</p>
+          <p className="mb-1">✉️ Email: nayeembabu2k6@gmail.com</p>
         </div>
 
         {/* Social Media */}
         <div>
           <h2 className="text-xl font-semibold mb-3">Follow Us</h2>
           <ul className="space-y-2">
-            <li><a className="hover:text-blue-400" href="#">Facebook</a></li>
+            <li><a className="hover:text-blue-400" href="https://www.facebook.com/profile.php?id=61572239922475">Facebook</a></li>
             <li><a className="hover:text-blue-400" href="#">Instagram</a></li>
-            <li><a className="hover:text-blue-400" href="#">YouTube</a></li>
+            <li><a className="hover:text-blue-400" href="https://www.youtube.com/@bangla-code">YouTube</a></li>
             <li><a className="hover:text-blue-400" href="#">LinkedIn</a></li>
           </ul>
         </div>

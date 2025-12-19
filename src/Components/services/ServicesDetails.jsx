@@ -235,8 +235,8 @@ function BookingModal({ service, setOpen, user }) {
  const axiosSecure = useAxiosSecure();
   const handleBooking = async () => {
    
-    if (!date || !location) {
-      toast.success("Please fill in all fields");
+   if (!date || !location.trim()) {
+      toast.error("Date and Location are required");
       return;
     }
 
@@ -306,6 +306,8 @@ function BookingModal({ service, setOpen, user }) {
               </label>
               <input 
                 type="date" 
+                required
+                value={date}
                 className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none transition"
                 onChange={e => setDate(e.target.value)}
                 min={new Date().toISOString().split('T')[0]}
@@ -319,7 +321,9 @@ function BookingModal({ service, setOpen, user }) {
                 Service Location
               </label>
               <input 
-                type="text" 
+                type="text"
+                required
+                value={location} 
                 className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none transition"
                 placeholder="Enter your address"
                 onChange={e => setLocation(e.target.value)}

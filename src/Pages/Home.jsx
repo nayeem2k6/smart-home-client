@@ -7,10 +7,11 @@ import MapComponent from "./MapCoverage";
 
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import LoadingSpiner from "../Components/LoadingSpiner";
 
 const Home = () => {
   const axiosSecure = useAxiosSecure()
-  const { data: services = [], roleLoading } = useQuery({
+  const { data: services = [], isLoading } = useQuery({
     queryKey: ["services"],
     queryFn: async () => {
       const res = await axiosSecure.get("/services");
@@ -25,10 +26,8 @@ const Home = () => {
   //     return res.data;
   //   },
   // });
-  if (roleLoading)
-    return <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>;
+  if (isLoading)
+    return <LoadingSpiner></LoadingSpiner>;
   return (
     <div className="min-h-screen">
       <section className="py-16 px-4">

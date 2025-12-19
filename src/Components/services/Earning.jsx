@@ -15,12 +15,10 @@ const Earning = () => {
     },
   });
 
-  // শুধু completed job
   const completedProjects = projects.filter(
     (item) => item.status === "completed"
   );
 
-  // মোট earning হিসাব
   const totalEarnings = completedProjects.reduce(
     (sum, item) => sum + Number(item.cost || 0),
     0

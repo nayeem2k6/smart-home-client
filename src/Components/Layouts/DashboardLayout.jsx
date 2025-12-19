@@ -815,10 +815,10 @@ const DashboardLayout = () => {
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-gray-800">
-                    DecoratePro
+                    StyleDecor
                   </h1>
                   <p className="text-xs text-gray-500">
-                    Professional Decoration Services
+                    Professional  StyleDecoration Services
                   </p>
                 </div>
               </div>
@@ -1006,7 +1006,7 @@ const DashboardLayout = () => {
                 <FaHome className="text-white text-2xl" />
               </button>
               <div>
-                <h2 className="font-bold text-xl">DecoratePro</h2>
+                <h2 className="font-bold text-xl">StyleDecor</h2>
                 <p className="text-xs text-gray-400">Professional Dashboard</p>
               </div>
             </div>
@@ -1094,7 +1094,7 @@ const DashboardLayout = () => {
                       My Bookings
                     </NavLink>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink
                       to="/dashboard/bookings/cancellation"
                       className={({ isActive }) =>
@@ -1109,7 +1109,7 @@ const DashboardLayout = () => {
                       <FaTimesCircle />
                       Cancel Booking
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li>
                     <NavLink
                       to="/dashboard/payment-history"
@@ -1126,7 +1126,7 @@ const DashboardLayout = () => {
                       Payment History
                     </NavLink>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink
                       to="/dashboard/receipts"
                       className={({ isActive }) =>
@@ -1141,7 +1141,7 @@ const DashboardLayout = () => {
                       <FaReceipt />
                       Payment Receipts
                     </NavLink>
-                  </li>
+                  </li> */}
                 </>
               )}
 
@@ -1151,7 +1151,7 @@ const DashboardLayout = () => {
                   <li className="menu-title text-gray-400 text-xs uppercase mt-6 mb-2">
                     Management
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink
                       to=""
                       className={({ isActive }) =>
@@ -1166,7 +1166,7 @@ const DashboardLayout = () => {
                       <FaUserTie />
                       Manage Decorators
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li>
                     <NavLink
                       to="/dashboard/decorators/approval"
@@ -1215,38 +1215,8 @@ const DashboardLayout = () => {
                       Manage Bookings
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink
-                      to="/dashboard/bookings/assign"
-                      className={({ isActive }) =>
-                        `rounded-lg mb-1 ${
-                          isActive
-                            ? "bg-purple-600 text-white"
-                            : "hover:bg-gray-700"
-                        }`
-                      }
-                      onClick={handleSidebarClose}
-                    >
-                      <FaUserTie />
-                      Assign Decorators
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/dashboard/payments"
-                      className={({ isActive }) =>
-                        `rounded-lg mb-1 ${
-                          isActive
-                            ? "bg-purple-600 text-white"
-                            : "hover:bg-gray-700"
-                        }`
-                      }
-                      onClick={handleSidebarClose}
-                    >
-                      <FaMoneyBillWave />
-                      Payment Verification
-                    </NavLink>
-                  </li>
+                 
+                
 
                   <li className="menu-title text-gray-400 text-xs uppercase mt-6 mb-2">
                     Analytics & Reports

@@ -1,6 +1,4 @@
 
-
-
 import { useContext, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router";
@@ -25,7 +23,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <FcHome size={32} />
-          <span className="text-xl font-bold">Smart-Home</span>
+          <span className="text-xl font-bold">StyleDecor</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -111,7 +109,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white shadow-md border-t animate-fadeIn">
+        <div className="md:hidden bg-white shadow-md border-t">
           <ul className="flex flex-col p-4 text-lg font-medium gap-2">
             <li><Link to="/" className="py-2 hover:text-blue-600 transition">Home</Link></li>
             <li><Link to="/services" className="py-2 hover:text-blue-600 transition">Services</Link></li>
@@ -140,7 +138,7 @@ export default function Navbar() {
                     Dashboard
                   </Link>
                   <Link
-                    to="/profile"
+                    to="/dashboard/profile"
                     className="px-4 py-2 border rounded-lg text-center hover:bg-gray-100 transition"
                   >
                     My Profile
@@ -154,8 +152,8 @@ export default function Navbar() {
                 </>
               ) : (
                 <>
-                  <Link to="/login" className="px-4 py-2 bg-blue-500 text-white rounded-lg text-center hover:bg-blue-600 transition">Login</Link>
-                  <Link to="/register" className="px-4 py-2 border border-blue-500 text-blue-500 rounded-lg text-center hover:bg-blue-50 transition">Register</Link>
+                  <Link to="/login" className="px-4 text-center py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Login</Link>
+                  <Link to="/register" className="px-4 py-2 text-center border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition">Register</Link>
                 </>
               )}
             </div>
