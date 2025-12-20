@@ -1360,7 +1360,7 @@ const DashboardLayout = () => {
                   </li>
                   <li>
                     <NavLink
-                      to="/dashboard/payment-history"
+                      to="/dashboard/decorator"
                       className={({ isActive }) =>
                         `rounded-lg mb-1 ${
                           isActive

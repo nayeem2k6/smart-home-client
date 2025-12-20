@@ -35,14 +35,23 @@ export default function MyBookings() {
     },
   });
 
-  // Cancel booking
+
+
   const handleCancel = async (id) => {
-    if (window.confirm("Are you sure you want to cancel this booking?")) {
-      await axiosSecure.patch(`/bookings/cancel/${id}`);
-      queryClient.invalidateQueries(["bookings", user?.email]);
-      toast.success("Booking Cancelled Successfully!");
-    }
-  };
+  
+  try {
+    await axiosSecure.patch(`/bookings/cancel/${id}`);
+
+    // refetch bookings
+    queryClient.invalidateQueries(["bookings", user?.email]);
+
+    toast.success("Booking cancelled successfully!");
+  } catch (error) {
+    console.error(error);
+    toast.error("Failed to cancel booking");
+  }
+};
+
 
   const handlePay = async (booking) => {
     try {
@@ -270,6 +279,7 @@ export default function MyBookings() {
                       booking.status !== "Paid" && (
                         <button
                           onClick={() => openUpdateModal(booking)}
+                        
                           className="px-4 py-2.5 border border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-medium flex items-center justify-center"
                         >
                           <PencilIcon className="w-5 h-5 mr-2" />
@@ -327,6 +337,7 @@ export default function MyBookings() {
                 </label>
                 <input
                   type="date"
+                  required
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
@@ -341,6 +352,7 @@ export default function MyBookings() {
                 </label>
                 <input
                   type="text"
+                  required
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
                   placeholder="Enter service address"
@@ -371,3 +383,4 @@ export default function MyBookings() {
     </div>
   );
 }
+

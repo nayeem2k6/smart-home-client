@@ -27,6 +27,7 @@ import Cot from "../Components/menu/cot";
 import DecoratorApproval from "../Components/AdminMake/DecoratorApproval";
 import { ServiceDemandChart } from "../Components/AdminMake/ServiceDemandChart";
 import { RevenueMonitoring } from "../Components/AdminMake/RevenueMonitoring";
+import DecoratorPayment from "../Components/services/DecoratorPayment";
 
 const router = createBrowserRouter([
   {
@@ -83,7 +84,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/bookings",
-        element: <MyBookings></MyBookings>,
+        element: <PrivateRoute><MyBookings></MyBookings></PrivateRoute>,
       },
       {
         path: "/dashboard/services",
@@ -95,7 +96,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/dashboard/bookings/manage",
-        element:<AdminManageBookings></AdminManageBookings>
+        element:<PrivateRoute><AdminManageBookings></AdminManageBookings></PrivateRoute>
       },
       {
         path:'/dashboard/projects',
@@ -124,7 +125,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/dashboard/payment-history",
-        element:<PaymentHistory></PaymentHistory>
+        element:<PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
       },
       {
         path:"/dashboard/analytics/bookings-histogram",
@@ -137,6 +138,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard/revenueMonitoring",
         Component:RevenueMonitoring
+      },
+      {
+        path:"/dashboard/decorator",
+        element:<PrivateRoute><DecoratorPayment></DecoratorPayment></PrivateRoute>
       }
         
     

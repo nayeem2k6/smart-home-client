@@ -1,4 +1,7 @@
 
+
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaCalendarAlt, FaClock } from 'react-icons/fa';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white mt-10">
@@ -6,33 +9,83 @@ export default function Footer() {
         {/* Contact Details */}
         <div>
           <h2 className="text-xl font-semibold mb-3">Contact Us</h2>
-          <p className="mb-1">📍 Address: Dhaka, Bangladesh</p>
-          <p className="mb-1">📞 Phone: +880 1407038855</p>
-          <p className="mb-1">✉️ Email: nayeembabu2k6@gmail.com</p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-blue-400" />
+              <span>Address: Dhaka, Bangladesh</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaPhone className="text-blue-400" />
+              <span>Phone: +880 1407038855</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaEnvelope className="text-blue-400" />
+              <span>Email: nayeembabu2k6@gmail.com</span>
+            </div>
+          </div>
         </div>
 
         {/* Social Media */}
         <div>
           <h2 className="text-xl font-semibold mb-3">Follow Us</h2>
-          <ul className="space-y-2">
-            <li><a className="hover:text-blue-400" href="https://www.facebook.com/profile.php?id=61572239922475">Facebook</a></li>
-            <li><a className="hover:text-blue-400" href="#">Instagram</a></li>
-            <li><a className="hover:text-blue-400" href="https://www.youtube.com/@bangla-code">YouTube</a></li>
-            <li><a className="hover:text-blue-400" href="#">LinkedIn</a></li>
-          </ul>
+          <div className="flex flex-col space-y-3">
+            <a 
+              href="https://www.facebook.com/profile.php?id=61572239922475" 
+              className="flex items-center gap-2 hover:text-blue-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook className="text-blue-500" />
+              <span>Facebook</span>
+            </a>
+            <a 
+              href="#" 
+              className="flex items-center gap-2 hover:text-pink-400 transition-colors"
+            >
+              <FaInstagram className="text-pink-500" />
+              <span>Instagram</span>
+            </a>
+            <a 
+              href="#" 
+              className="flex items-center gap-2 hover:text-red-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube className="text-red-500" />
+              <span>YouTube</span>
+            </a>
+            <a 
+              href="#" 
+              className="flex items-center gap-2 hover:text-blue-300 transition-colors"
+            >
+              <FaLinkedin className="text-blue-700" />
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
 
         {/* Business Hours */}
         <div>
-          <h2 className="text-xl font-semibold mb-3">Working Hours</h2>
-          <p className="mb-1">Saturday - Thursday: 9 AM - 8 PM</p>
-          <p className="mb-1">Friday: Closed</p>
+          <h2 className="text-xl font-semibold mb-3 flex items-center gap-2">
+            <FaCalendarAlt className="text-blue-400" />
+            Working Hours
+          </h2>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <FaClock className="text-green-400" />
+              <span>Saturday - Thursday: 9 AM - 8 PM</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaCalendarAlt className="text-red-400" />
+              <span>Friday: Closed</span>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Copyright */}
       <div className="bg-gray-800 py-4 text-center text-sm">
-        © {new Date().getFullYear()} Your Business Name. All Rights Reserved.
+        © {new Date().getFullYear()} NaYEeM. All Rights Reserved.
       </div>
     </footer>
   );

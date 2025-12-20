@@ -14,12 +14,18 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpiner from "../LoadingSpiner";
 import { TrendingUp, DollarSign, Calendar } from "lucide-react";
 
+
+
 export function RevenueMonitoring() {
   const axiosSecure = useAxiosSecure();
   
   const { data: revenue = [], isLoading } = useQuery({
     queryKey: ["revenue"],
-    queryFn: async () => (await axiosSecure.get("/admin/revenue")).data,
+    queryFn: async () => {
+    const res =  await axiosSecure.get("/admin/revenue")
+    return res.data;
+  }
+  
   });
 
   // Calculate total revenue for display
@@ -192,3 +198,54 @@ export function RevenueMonitoring() {
     </div>
   );
 }
+
+
+// export function RevenueMonitoring() {
+//   const axiosSecure = useAxiosSecure();
+
+//   const { data: revenue = [], isLoading } = useQuery({
+//     queryKey: ["revenue"],
+//     queryFn: async () => {
+//       const res = await axiosSecure.get("/admin/revenue");
+//       return res.data;
+//     },
+//   });
+
+//   const totalRevenue = revenue.reduce(
+//     (sum, item) => sum + (item.total || 0),
+//     0
+//   );
+
+//   if (isLoading) return <LoadingSpiner />;
+
+//   return (
+//     <div className="bg-white rounded-2xl shadow-lg p-6">
+//       <h2 className="text-xl font-bold mb-4">Revenue Monitoring</h2>
+
+//       {revenue.length === 0 ? (
+//         <p className="text-gray-500">No revenue data</p>
+//       ) : (
+//         <div className="h-[400px]">
+//           <div width="100%" height="100%">
+//             <LineChart data={revenue}>
+//               <div strokeDasharray="3 3" />
+//               <XAxis dataKey="date" />
+//               <YAxis />
+//               <Tooltip />
+//               <Line
+//                 type="monotone"
+//                 dataKey="total"
+//                 stroke="#10b981"
+//                 strokeWidth={3}
+//               />
+//             </LineChart>
+//           </div>
+//         </div>
+//       )}
+
+//       <p className="mt-4 font-semibold">
+//         Total Revenue: ${totalRevenue}
+//       </p>
+//     </div>
+//   );
+// }
