@@ -3,7 +3,7 @@
 # Project Name
 A short project overview explaining the purpose of the project.
 
-![Project Screenshot]()
+![Project Screenshot](https://i.ibb.co.com/YB6vMB1j/Screenshot-2025-12-31-134234.png)
 
 ## 🔗 Live Demo
 [Check Live Project](https://smart-home-28575.web.app)
