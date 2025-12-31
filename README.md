@@ -1,4 +1,37 @@
 
+
+# Project Name
+A short project overview explaining the purpose of the project.
+
+![Project Screenshot]()
+
+## 🔗 Live Demo
+[Check Live Project](https://smart-home-28575.web.app)
+
+## 🛠 Technologies Used
+- React
+- Node.js
+- Express
+- MongoDB
+- CSS/Bootstrap (whatever you used)
+
+## ⭐ Core Features
+- Feature 1: Description
+- Feature 2: Description
+- Feature 3: Description
+
+## ⚙ Dependencies
+- react
+- react-router
+- axios
+- dotenv
+- etc.
+
+## 🚀 How to Run Locally
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nayeem2k6/smart-home-client.git
+
 live Link=  https://smart-home-28575.web.app
 
 
